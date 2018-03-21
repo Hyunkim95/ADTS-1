@@ -11,7 +11,7 @@ List.of(assign)
 **Applicative**
 
 ```
-ap :: f(a -> b) -> f a -> f b 
+ap :: f(a -> b -> c) -> f a -> f b -> f c
 ```
 
 ```
