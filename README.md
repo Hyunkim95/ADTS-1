@@ -11,7 +11,7 @@ List.of(assign)
 **Applicative**
 
 ```
-ap :: m(a -> b) -> m a -> m b 
+ap :: f(a -> b) -> f a -> f b 
 ```
 
 ```
@@ -34,6 +34,22 @@ List(values)
 ```
 * Basically the same thing, it first wraps the values in a functor and then the map partially applies assign to each element.  Each element in suits is then applied to each partial function
 
+```
+const apExample = 
+	ap(suits, map(assign, value))
+```
+
+* map(fn, data) => partial function
+* apply that partial function over the suits
+
+**LiftA2**
+
+Basically the simpler version of ap
+
+```
+liftA2 :: (a -> b -> c) -> f a -> f b -> f c 
+```
+
 **Pair**
 
 ```
@@ -50,17 +66,17 @@ Pair([], deck)
 ```
 Pair :: P a a
 Pair([], deck)
-m a 
+f a 
 
 pickCard :: a -> P a a 
-b -> mb 
+b -> f b 
 ```
 
 ```
-Chain :: m a -> (a -> m b) -> m b
+Chain :: f a -> (a -> f b) -> f b
 
-Pair([], deck) <------------ ma 
-	.chain(pickCard<)---------- (a -> mb)
+Pair([], deck) <------------ f a 
+	.chain(pickCard<)---------- (a -> f b)
 
 // output will be mb
 ```
