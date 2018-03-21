@@ -1,0 +1,14 @@
+{
+  "name": "working-with-adts-1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "crocks": "^0.9.0",
+    "eyes": "^0.1.8",
+    "nodemon": "^1.17.2"
+  }
+}
