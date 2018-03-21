@@ -82,3 +82,29 @@ Pair([], deck) <------------ f a
 ```
 
 Side effects limit the ability to test comprehensively thats why we want to reduce side effects as much as possible
+
+# Some things to note
+
+* fmap / map is only available to Functor typeclasses
+* chain is only available to Monad typeclass
+* Ap is only available to Applicative typeclass
+
+## Whats the difference between the three?
+
+**Functors** - you apply a funciton to a wrapped value using fmap or <$>
+
+```
+f a -> (a -> b) -> f b
+```
+
+**Applicatives** - you apply a wrapped function to a wrapped value using <*> or liftA
+
+```
+A (a -> b) -> A (a) -> A (b)
+```
+
+**Monads** - you apply a function that returns a wrapped value to a wrapped value, using >>= or liftM (chain)
+
+```
+m a -> (a -> m b) -> m b
+```
